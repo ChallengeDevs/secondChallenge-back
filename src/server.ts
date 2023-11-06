@@ -18,7 +18,6 @@ app.register(fastifySwagger, {
     servers: [
       {
         url: 'http://localhost:8080',
-        description: 'The production API server',
       },
     ],
     tags: [

@@ -1,12 +1,29 @@
+import {
+  getScoreboard,
+  getTeams,
+} from '@/utils/routes-schemas/scoreRoutesSchema'
 import { FastifyInstance } from 'fastify'
 
 const baseURL = (path: string) =>
   `https://site.api.espn.com/apis/site/v2/sports/basketball/nba/${path}`
 
+interface ScoreboardSchema {
+  leagues: Array<object>
+  season: object
+  day: object
+  events: Array<object>
+}
+
+interface TeamsSchema {
+  sports: Array<object>
+}
+
 export async function scoreRoutes(app: FastifyInstance) {
-  app.get('/scoreboard', async (request, reply) => {
+  app.get('/scoreboard', getScoreboard, async (request, reply) => {
     try {
-      const scoreBoardFetch = await fetch(baseURL('scoreboard'))
+      const scoreBoardFetch: ScoreboardSchema = await fetch(
+        baseURL('scoreboard'),
+      )
         .then((response) => response.json())
         .then((data) => {
           return data
@@ -25,9 +42,9 @@ export async function scoreRoutes(app: FastifyInstance) {
     }
   })
 
-  app.get('/teams', async (request, reply) => {
+  app.get('/teams', getTeams, async (request, reply) => {
     try {
-      const teamsFetch = await fetch(baseURL('teams'))
+      const teamsFetch: TeamsSchema = await fetch(baseURL('teams'))
         .then((response) => {
           if (response.ok) {
             return response.json()
