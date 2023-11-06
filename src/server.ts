@@ -1,8 +1,9 @@
-import { app } from './app'
-import { env } from './env'
 import cors from '@fastify/cors'
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUi from '@fastify/swagger-ui'
+import { app } from './app'
+import { env } from './env'
+import { scoreRoutes } from './routes/score'
 import { userRoutes } from './routes/user'
 
 app.register(cors, { origin: '*' })
@@ -121,6 +122,10 @@ app.register(fastifySwaggerUi, {
 
 app.register(userRoutes, {
   prefix: '/user',
+})
+
+app.register(scoreRoutes, {
+  prefix: '/nba',
 })
 
 app.listen({ port: env.PORT }).then(() => {
