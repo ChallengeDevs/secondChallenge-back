@@ -22,16 +22,85 @@ app.register(fastifySwagger, {
     ],
     tags: [
       { name: 'User', description: 'User Routes' },
-      { name: 'Meal', description: 'Meal Routes' },
+      { name: 'Score', description: 'Score Routes' },
     ],
-    components: {},
+    components: {
+      schemas: {
+        User: {
+          type: 'object',
+          properties: {
+            title: {
+              type: 'string',
+              example: 'User',
+            },
+            required: {
+              type: 'array',
+              example: ['name', 'email', 'password'],
+              items: {
+                type: 'string',
+              },
+            },
+            properties: {
+              type: 'object',
+              properties: {
+                id: {
+                  type: 'object',
+                  properties: {
+                    type: {
+                      type: 'string',
+                      example: 'string',
+                    },
+                  },
+                },
+                name: {
+                  type: 'object',
+                  properties: {
+                    type: {
+                      type: 'string',
+                      example: 'John Doe',
+                    },
+                  },
+                },
+                username: {
+                  type: 'object',
+                  properties: {
+                    type: {
+                      type: 'string',
+                      example: 'johndoe',
+                    },
+                  },
+                },
+                email: {
+                  type: 'object',
+                  properties: {
+                    type: {
+                      type: 'string',
+                      example: 'johndoe@outlook.com',
+                    },
+                  },
+                },
+                password: {
+                  type: 'object',
+                  properties: {
+                    type: {
+                      type: 'string',
+                      example: '123456',
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
   },
 })
 
 app.register(fastifySwaggerUi, {
   routePrefix: '/documentation',
   uiConfig: {
-    docExpansion: 'full',
+    docExpansion: 'list',
     deepLinking: false,
   },
   uiHooks: {

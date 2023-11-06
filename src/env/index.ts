@@ -6,6 +6,7 @@ const envSchema = z.object({
   PORT: z.coerce.number().default(8080),
   NODE_ENV: z.enum(['dev', 'production', 'test']).default('dev'),
   DATABASE_URL: z.string(),
+  JWT_SECRET: z.string(),
 })
 
 // valida e caso tenha erro retorna objeto contendo instancia de ZodError
