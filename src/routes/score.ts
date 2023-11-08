@@ -1,3 +1,4 @@
+import { auth } from '@/middlewares/auth'
 import {
   getScoreboard,
   getTeams,
@@ -19,6 +20,10 @@ interface TeamsSchema {
 }
 
 export async function scoreRoutes(app: FastifyInstance) {
+  app.addHook('preHandler', async (request, reply) => {
+    auth(request, reply)
+  })
+
   app.get('/scoreboard', getScoreboard, async (request, reply) => {
     try {
       const scoreBoardFetch: ScoreboardSchema = await fetch(
