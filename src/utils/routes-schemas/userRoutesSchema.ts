@@ -16,7 +16,7 @@ export const getUsers = {
             items: {
               type: 'object',
               properties: {
-                id: { type: 'string' },
+                _id: { type: 'string' },
                 name: { type: 'string' },
                 username: { type: 'string' },
                 email: { type: 'string' },
