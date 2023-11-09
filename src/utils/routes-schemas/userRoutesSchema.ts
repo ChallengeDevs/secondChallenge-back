@@ -11,15 +11,8 @@ export const getUsers = {
         description: 'Succesful response',
         type: 'object',
         properties: {
-          users: { type: 'array' },
-        },
-      },
-      500: {
-        description: 'Fail response',
-        type: 'object',
-        properties: {
-          error: {
-            type: 'string',
+          users: {
+            type: 'array',
             items: {
               type: 'object',
               properties: {
@@ -29,6 +22,15 @@ export const getUsers = {
                 email: { type: 'string' },
               },
             },
+          },
+        },
+      },
+      500: {
+        description: 'Fail response',
+        type: 'object',
+        properties: {
+          error: {
+            type: 'string',
           },
         },
       },
