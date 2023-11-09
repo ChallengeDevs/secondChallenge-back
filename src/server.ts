@@ -17,7 +17,7 @@ app.register(fastifySwagger, {
     },
     servers: [
       {
-        url: 'http://localhost:8080',
+        url: 'https://second-challenge-backend.onrender.com/',
       },
     ],
     tags: [
