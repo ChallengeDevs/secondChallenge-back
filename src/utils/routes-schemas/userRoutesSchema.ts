@@ -18,7 +18,18 @@ export const getUsers = {
         description: 'Fail response',
         type: 'object',
         properties: {
-          error: { type: 'string' },
+          error: {
+            type: 'string',
+            items: {
+              type: 'object',
+              properties: {
+                id: { type: 'string' },
+                name: { type: 'string' },
+                username: { type: 'string' },
+                email: { type: 'string' },
+              },
+            },
+          },
         },
       },
     },
