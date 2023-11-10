@@ -1,10 +1,12 @@
 import cors from '@fastify/cors'
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUi from '@fastify/swagger-ui'
-import { app } from './app'
+import fastify from 'fastify'
 import { env } from './env'
 import { scoreRoutes } from './routes/score'
 import { userRoutes } from './routes/user'
+
+export const app = fastify()
 
 app.register(cors, { origin: '*' })
 
