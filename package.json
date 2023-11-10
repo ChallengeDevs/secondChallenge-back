@@ -3,14 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines": {
-    "node": "18"
-  },
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "lint": "eslint src --ext .ts --fix",
     "build": "tsup src --out-dir build",
-    "start": "node build/server.js",
+    "start": "ts-node src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "vercel-build": "echo hello"
   },
@@ -37,6 +34,7 @@
     "fastify": "^4.24.3",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.0",
+    "ts-node": "^10.9.1",
     "zod": "^3.22.4"
   }
 }
