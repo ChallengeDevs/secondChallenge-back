@@ -1,4 +1,4 @@
-import { connectDatabase } from '@/middlewares/database'
+import { connectDatabase } from '../../middlewares/database'
 
 // GET USERS ROUTE
 export const getUsers = {
