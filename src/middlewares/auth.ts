@@ -1,6 +1,6 @@
-import { env } from '@/env'
 import { FastifyReply, FastifyRequest } from 'fastify'
 import jwt from 'jsonwebtoken'
+import { env } from '../env'
 
 export const auth = (request: FastifyRequest, reply: FastifyReply) => {
   const token = request.headers.authorization
