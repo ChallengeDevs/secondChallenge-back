@@ -50,6 +50,7 @@ export const createUser = {
       name: { type: 'string' },
       email: { type: 'string' },
       password: { type: 'string' },
+      username: { type: 'string' },
     },
     response: {
       201: {
