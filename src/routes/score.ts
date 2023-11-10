@@ -1,9 +1,9 @@
+import { FastifyInstance } from 'fastify'
+import { auth } from '../middlewares/auth'
 import {
   getScoreboard,
   getTeams,
-} from '@/utils/routes-schemas/scoreRoutesSchema'
-import { FastifyInstance } from 'fastify'
-import { auth } from '../middlewares/auth'
+} from '../utils/routes-schemas/scoreRoutesSchema'
 
 const baseURL = (path: string) =>
   `https://site.api.espn.com/apis/site/v2/sports/basketball/nba/${path}`

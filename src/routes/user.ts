@@ -1,14 +1,14 @@
-import {
-  createUser,
-  getUsers,
-  loginUser,
-} from '@/utils/routes-schemas/userRoutesSchema'
 import bcrypt from 'bcrypt'
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
 import jwt from 'jsonwebtoken'
 import { z } from 'zod'
 import { env } from '../env'
 import { User } from '../models/user'
+import {
+  createUser,
+  getUsers,
+  loginUser,
+} from '../utils/routes-schemas/userRoutesSchema'
 export async function userRoutes(app: FastifyInstance) {
   app.get(
     '/',
