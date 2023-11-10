@@ -6,7 +6,7 @@ import { env } from './env'
 import { scoreRoutes } from './routes/score'
 import { userRoutes } from './routes/user'
 
-export const app = fastify()
+const app = fastify()
 
 app.register(cors, { origin: '*' })
 
@@ -132,3 +132,5 @@ app.register(scoreRoutes, {
 app.listen({ port: env.PORT }).then(() => {
   console.log('HTTP Server running!')
 })
+
+export default app
