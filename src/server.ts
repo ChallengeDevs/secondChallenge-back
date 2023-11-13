@@ -1,6 +1,7 @@
 import cors from '@fastify/cors'
 import fastifySwagger from '@fastify/swagger'
 import fastifySwaggerUi from '@fastify/swagger-ui'
+import { FastifyReply } from 'fastify'
 import { app } from './app'
 import { env } from './env'
 import { scoreRoutes } from './routes/score'
@@ -125,6 +126,11 @@ app.register(userRoutes, {
 
 app.register(scoreRoutes, {
   prefix: '/nba',
+})
+
+// redireciona para documentação
+app.get('/', (_, reply: FastifyReply) => {
+  reply.redirect(302, '/documentation')
 })
 
 app.listen({ port: env.PORT, host: '0.0.0.0' }).then(() => {
